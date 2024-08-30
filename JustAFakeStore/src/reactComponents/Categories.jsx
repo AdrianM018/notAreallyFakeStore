@@ -14,9 +14,9 @@ function Categories() {
                 throw new Error(`Response status: ${response.status}`);
             }
 
-            const json = await response.json();
+            const json = response.json();
             setcategoriesData(json)
-            console.log(categoriesData)
+            console.log(categoriesData) 
 
         } catch (error) {
             console.error(error.message);
