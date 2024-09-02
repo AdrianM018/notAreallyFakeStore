@@ -9,7 +9,6 @@ function Header() {
       <ul className="nav nav-pills">
         <li className="nav-item"><a href="#" className="nav-link active" aria-current="page">Home</a></li>
         <li className="nav-item"><a href="#" className="nav-link">Categories</a></li>
-        <li className="nav-item"><a href="#" className="nav-link">Special promotion!</a></li>
         <li className="nav-item"><a href="#" className="nav-link">Log In</a></li>
         <li className="nav-item"><a href="#" className="nav-link">Sign Up</a></li>
       </ul>
