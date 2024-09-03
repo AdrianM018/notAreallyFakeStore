@@ -1,36 +1,36 @@
 import React, { useEffect, useState } from 'react'
-// Math.floor(Math.random() * (200 - 300) + 200);
+
 function Hero() {
   
 const [randomproduct, setRandomProduct] = useState(null);
-const [loading, setLoading] = useState(true); // Add a loading state
-const [error, setError] = useState(null); // Add an error state for better error handling
+const [loading, setLoading] = useState(true); 
+const [error, setError] = useState(null); 
 
 useEffect(() => {
 
   async function getData() {
-    const productID = Math.floor(Math.random() * (615 - 399) + 399);
+    const productID = Math.floor(Math.random() * (153 - 119) + 119  );
       const url = `https://api.escuelajs.co/api/v1/products/${productID}`;
       try {
-          setLoading(true);  // Start loading
+          setLoading(true);
           const response = await fetch(url);
 
           if (!response.ok) {
               throw new Error('Response status: ${response.status}');
           }
 
-          const json = await response.json(); // Await the JSON promise
-          setRandomProduct(json);  // Update state with fetched data
-          setLoading(false);  // End loading when data is fetched
+          const json = await response.json();
+          setRandomProduct(json);
+          setLoading(false);
 
       } catch (error) {
           setError(error.message);
-          setLoading(false);  // End loading in case of error
+          setLoading(false);
       }
   }
 
   getData();
-}, []);  // Empty dependency array means this runs once after the component mounts
+}, []);
 
 if (loading) {
   return <p>Loading...</p>;
@@ -50,7 +50,7 @@ if (error) {
         </div>
       </div>
       <div className="col-lg-6 py-2 px-2 overflow-hidden shadow-lg">
-          <img className="rounded-3 img-fluid" src={randomproduct.images[0]} alt="" width="720"/>
+          {/* <img className="rounded-3 img-fluid" src={randomproduct.images[0]} alt="" width="720"/> */}
       </div>
     </div>
   </div>

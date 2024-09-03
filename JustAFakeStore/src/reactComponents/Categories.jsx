@@ -48,11 +48,11 @@ function Categories() {
                                     <div className="mb-1 text-body-secondary">Nov 12</div>
                                     <p className="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                                     <a href="#" className="icon-link gap-1 icon-link-hover stretched-link">
-                                        Continue reading
+                                        See products
                                         <svg className="bi"></svg>
                                     </a>
                                 </div>
-                                <div className="col d-none d-lg-block">
+                                <div className="col d-lg-block">
                             <img src={category.image} alt="" className='img-thumbnail'/>
                                 </div>
                             </div>
