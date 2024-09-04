@@ -1,34 +1,33 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Navbar() {
-
-    const [categoriesData, setCategoriesData] = useState([]);  // Initialize as an empty array
-    const [loading, setLoading] = useState(true); // Add a loading state
-    const [error, setError] = useState(null); // Add an error state for better error handling
+    const [categoriesData, setCategoriesData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function getData() {
             const url = 'https://api.escuelajs.co/api/v1/categories';
             try {
-                setLoading(true);  // Start loading
+                setLoading(true);
                 const response = await fetch(url);
 
                 if (!response.ok) {
                     throw new Error('Response status: ${response.status}');
                 }
 
-                const json = await response.json(); // Await the JSON promise
-                setCategoriesData(json);  // Update state with fetched data
-                setLoading(false);  // End loading when data is fetched
+                const json = await response.json();
+                setCategoriesData(json);
+                setLoading(false);
 
             } catch (error) {
                 setError(error.message);
-                setLoading(false);  // End loading in case of error
+                setLoading(false);
             }
         }
 
         getData();
-    }, []);  // Empty dependency array means this runs once after the component mounts
+    }, []);
 
     if (loading) {
         return <p>Loading...</p>;
@@ -38,13 +37,25 @@ function Navbar() {
         return <p>Error: {error}</p>;
     }
 
+    function closeSidebar(){
+
+    }
+
     return (
-        <ul>
-            {categoriesData.map((category) =>{
-                <li key={category.id}>{category.name ? category.name : 'Fetching Name'}</li>
-            })}
-        </ul>
-    )
+        <>
+            <ul className='glass text-light list-unstyled p-3 fixed-top h-100' id='navbar'>
+                <button className='d-inline float-end text-light b-color-main border-0' onClick={closeSidebar}>
+                <h3>X</h3>
+                </button>
+                {categoriesData.map((category) =>
+                    <li key={category.id} className='text-start fs-1'>
+                        {category.name ? category.name : 'Fetching Name'}
+                    </li>
+                )}
+            </ul>
+            
+        </>
+    );
 }
 
 export default Navbar

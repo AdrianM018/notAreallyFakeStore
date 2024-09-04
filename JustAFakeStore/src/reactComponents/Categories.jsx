@@ -39,7 +39,7 @@ function Categories() {
 
     return (
             <>
-                * <div className="row mb-2">
+                <div className="row mb-2">
                     {categoriesData.map((category) =>
                         <div className="col-md-6" key={category.id}>
                             <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -58,7 +58,7 @@ function Categories() {
                             </div>
                         </div>
                     )}
-                </div>x
+                </div>
             </>
     );
 }
