@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Categories() {
+function Categories({setclickedCategory}) {
+    const navigate = useNavigate()
     const [categoriesData, setCategoriesData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -47,10 +49,10 @@ function Categories() {
                                 <div className="col p-lg-4 p-3 d-flex flex-column position-static">
                                     <h3 className="mb-0 fs-2">{category.name ? category.name : 'Fetching Name'}</h3>
                                     <p className="card-text mb-auto fs-6">Over {randomnumber} products to choose from</p>
-                                    <a href="#" className="icon-link gap-1 icon-link-hover stretched-link mx-auto">
+                                    <button  onClick={() => {setclickedCategory(category.name); navigate(`/CategoryPage`)}}>
                                         See products
                                         <svg className="bi"></svg>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>

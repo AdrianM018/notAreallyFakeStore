@@ -1,9 +1,10 @@
-import { StrictMode } from 'react'
+import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import HomePage from './HomePage'
 import CategoryPage from './reactComponents/CategoryPage'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
     element: <HomePage/>
   },
   {
-    path: './reactComponents/CategoryPage',
+    path: '/CategoryPage',
     element: <CategoryPage/>
   }
 ])

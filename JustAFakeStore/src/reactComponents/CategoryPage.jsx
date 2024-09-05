@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from './Header'
 
-function CategoryPage() {
+function CategoryPage({clickedCategory}) {
   return (
-    <div>CategoryPage</div>
+    <>
+    <Header/>
+    <div>{clickedCategory}</div>
+    </>
   )
 }
 
