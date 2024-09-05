@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Navbar from './Navbar'
 
 function Header() {
-
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-
 
   function expandSidebar() {
     setIsSidebarVisible(!isSidebarVisible);
   }
 
+
   return (
     <>
       <header className='fixed-top b-color-main text-light'>
         <div className="container">
-          <header className="d-flex justify-content-between py-3">
+          <div className="d-flex justify-content-between py-3">
             <button onClick={expandSidebar} className='border-0 text-light b-color-main'>
               <svg xmlns="http://www.w3.org/2000/svg" width='30' height='30' fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
                 <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
               </svg>
             </button>
+            <img src="./src/assets/JustAFakeStore.png" alt="Logo" className='h-25 w-25'/>
             <div className='d-flex gap-4'>
               <a href="#" className="nav-link active" aria-current="page">
                 <svg xmlns="http://www.w3.org/2000/svg" width='30' height='30' fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
@@ -33,11 +33,10 @@ function Header() {
                 </svg>
               </a>
             </div>
-          </header>
+          </div>
         </div>
       </header>
-      {/* Conditionally render the Navbar */}
-      {isSidebarVisible && <Navbar />}
+      {isSidebarVisible && <Navbar/>}
     </>
   )
 }

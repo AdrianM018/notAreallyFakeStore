@@ -9,8 +9,8 @@ const [error, setError] = useState(null);
 useEffect(() => {
 
   async function getData() {
-    const productID = Math.floor(Math.random() * (153 - 119) + 119  );
-      const url = `https://api.escuelajs.co/api/v1/products/${productID}`;
+    const productID = Math.floor(Math.random() * (30 - 1) + 1  );
+      const url = `https://dummyjson.com/products/${productID}`;
       try {
           setLoading(true);
           const response = await fetch(url);
@@ -40,7 +40,7 @@ if (error) {
   return <p>Error: {error}</p>;
 }
   return (
-    <div className=" my-5 pt-5">
+    <div className="my-5 pt-5">
     <div className="row pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg">
       <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
         <h1 className="display-6 fw-bold lh-1 text-body-emphasis">{randomproduct.title}</h1>
@@ -49,8 +49,8 @@ if (error) {
           <button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Buy now</button>
         </div>
       </div>
-      <div className="col-lg-6 py-2 px-2 overflow-hidden shadow-lg">
-          {/* <img className="rounded-3 img-fluid" src={randomproduct.images[0]} alt="" width="720"/> */}
+      <div className="col-lg-6 py-2 px-2 overflow-hidden">
+          <img className="rounded-3 img-thumbnail  shadow-lg" src={randomproduct.thumbnail} alt=""/>
       </div>
     </div>
   </div>

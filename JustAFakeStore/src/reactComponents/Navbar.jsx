@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 function Navbar() {
     const [categoriesData, setCategoriesData] = useState([]);
@@ -7,7 +7,7 @@ function Navbar() {
 
     useEffect(() => {
         async function getData() {
-            const url = 'https://api.escuelajs.co/api/v1/categories';
+            const url = 'https://dummyjson.com/products/categories';
             try {
                 setLoading(true);
                 const response = await fetch(url);
@@ -43,12 +43,12 @@ function Navbar() {
 
     return (
         <>
-            <ul className='glass text-light list-unstyled p-3 fixed-top h-100' id='navbar'>
-                <button className='d-inline float-end text-light b-color-main border-0' onClick={closeSidebar}>
-                <h3>X</h3>
+            <ul className='glass text-light list-unstyled p-3 fixed-top h-100 overflow-y-scroll' id='navbar'>
+                <button className='d-inline text-light b-color-main border-1 rounded-circle border-light px-2' onClick={closeSidebar} id='closeNavbar'>
+                <h3 className='m-2'>X</h3>
                 </button>
                 {categoriesData.map((category) =>
-                    <li key={category.id} className='text-start fs-1'>
+                    <li key={category.id} className='text-center fs-1'>
                         {category.name ? category.name : 'Fetching Name'}
                     </li>
                 )}

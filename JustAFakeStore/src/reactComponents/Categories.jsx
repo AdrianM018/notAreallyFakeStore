@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from 'react';
 
 function Categories() {
-    const [categoriesData, setCategoriesData] = useState([]);  // Initialize as an empty array
-    const [loading, setLoading] = useState(true); // Add a loading state
-    const [error, setError] = useState(null); // Add an error state for better error handling
+    const [categoriesData, setCategoriesData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [randomnumber, setRandomNumber] = useState(Math.floor(Math.random() * (30 - 1) + 1  ))
 
     useEffect(() => {
         async function getData() {
-            const url = 'https://api.escuelajs.co/api/v1/categories';
+            const url = 'https://dummyjson.com/products/categories';
             try {
-                setLoading(true);  // Start loading
+                setLoading(true);
                 const response = await fetch(url);
 
                 if (!response.ok) {
                     throw new Error('Response status: ${response.status}');
                 }
 
-                const json = await response.json(); // Await the JSON promise
-                setCategoriesData(json);  // Update state with fetched data
-                setLoading(false);  // End loading when data is fetched
+                const json = await response.json();
+                setCategoriesData(json);
+                setLoading(false);
 
             } catch (error) {
                 setError(error.message);
-                setLoading(false);  // End loading in case of error
+                setLoading(false);
             }
         }
 
         getData();
-    }, []);  // Empty dependency array means this runs once after the component mounts
+    }, []);
 
     if (loading) {
         return <p>Loading...</p>;
@@ -41,19 +42,15 @@ function Categories() {
             <>
                 <div className="row mb-2">
                     {categoriesData.map((category) =>
-                        <div className="col-md-6" key={category.id}>
+                        <div className="col-md-4 col-sm-1 col-xs-1 col-6" key={category.slug}>
                             <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                <div className="col p-4 d-flex flex-column position-static">
-                                    <h3 className="mb-0">{category.name ? category.name : 'Fetching Name'}</h3>
-                                    <div className="mb-1 text-body-secondary">Nov 12</div>
-                                    <p className="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" className="icon-link gap-1 icon-link-hover stretched-link">
+                                <div className="col p-lg-4 p-3 d-flex flex-column position-static">
+                                    <h3 className="mb-0 fs-2">{category.name ? category.name : 'Fetching Name'}</h3>
+                                    <p className="card-text mb-auto fs-6">Over {randomnumber} products to choose from</p>
+                                    <a href="#" className="icon-link gap-1 icon-link-hover stretched-link mx-auto">
                                         See products
                                         <svg className="bi"></svg>
                                     </a>
-                                </div>
-                                <div className="col d-lg-block">
-                            <img src={category.image} alt="" className='img-thumbnail'/>
                                 </div>
                             </div>
                         </div>
