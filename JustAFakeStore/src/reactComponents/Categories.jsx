@@ -49,7 +49,11 @@ function Categories({setclickedCategory}) {
                                 <div className="col p-lg-4 p-3 d-flex flex-column position-static">
                                     <h3 className="mb-0 fs-2">{category.name ? category.name : 'Fetching Name'}</h3>
                                     <p className="card-text mb-auto fs-6">Over {randomnumber} products to choose from</p>
-                                    <button  onClick={() => {setclickedCategory(category.name); navigate(`/CategoryPage`)}}>
+                                    <button  onClick={() => {
+                                        const Category_string = JSON.stringify(category.name);
+                                        sessionStorage.setItem('PressedOnCategory', Category_string)
+                                        navigate('/CategoryPage')
+                                    }}>
                                         See products
                                         <svg className="bi"></svg>
                                     </button>

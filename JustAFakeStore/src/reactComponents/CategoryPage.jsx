@@ -1,11 +1,12 @@
 import React from 'react'
 import Header from './Header'
 
-function CategoryPage({clickedCategory}) {
+function CategoryPage() {
+  let SingleCategory = JSON.parse(sessionStorage.getItem(`PressedOnCategory`))
   return (
     <>
     <Header/>
-    <div>{clickedCategory}</div>
+    <p className='mt-5'>{SingleCategory}</p>
     </>
   )
 }
