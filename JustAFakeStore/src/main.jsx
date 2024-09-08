@@ -1,4 +1,4 @@
-import { StrictMode, useState } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import HomePage from './HomePage'
 import CategoryPage from './reactComponents/CategoryPage'

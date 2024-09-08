@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Categories({setclickedCategory}) {
+function Categories() {
     const navigate = useNavigate()
     const [categoriesData, setCategoriesData] = useState([]);
     const [loading, setLoading] = useState(true);
