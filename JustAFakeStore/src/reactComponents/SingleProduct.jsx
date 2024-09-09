@@ -48,10 +48,10 @@ function SingleProduct() {
         <>
             <Header />
             <div className='row mt-5'>
-                <div className='col mt-5'>
+                <div className='col-lg-6 mt-5'>
                     <img src={singularProduct.images[1]} alt="" className='img-thumbnail shadow' />
                 </div>
-                <div className='col text-start'>
+                <div className='col-lg-6 text-start'>
                     <div>
                         <h1 className='mt-5 pt-5'>{singularProduct.title}</h1>
                         <p><strong>Brand: </strong>{singularProduct.brand} | Category: {singularProduct.category}</p>
@@ -59,24 +59,29 @@ function SingleProduct() {
                     <hr />
                     <p>{singularProduct.description}</p>
                     <div>
-                        <h2 className='text-center'>{singularProduct.price}$</h2>
-                        <h4 className='text-center'><i class="bi bi-star-fill"></i>{singularProduct.rating} ({singularProduct.discountPercentage}%)</h4>
+                        <h2 className='text-center'>{singularProduct.price}$ ({singularProduct.discountPercentage}%)</h2>
+                        <h4 className='text-center'><i class="bi bi-star-fill"></i>{singularProduct.rating}</h4>
                         <div className='row text-center'>
                             <p className='col'>{singularProduct.availabilityStatus}</p>
                             <p className='col'>Product id:{singularProduct.id}</p>
                             <p className='col'>Minimum order qty:{singularProduct.minimumOrderQuantity}</p>
                         </div>
                     </div>
+                    <div className='text-center my-5'>
+                        <button className='btn shadow w-50'>Buy now!</button>
+                    </div>
                     <hr />
                     <h3>Other details</h3>
                     <p>This product has {singularProduct.warrantyInformation}, weights {singularProduct.weight} KG and has a {singularProduct.returnPolicy} </p>
+                </div>
+                <div>
                     {singularProduct.reviews != 0 ? (
                         singularProduct.reviews.map((element) =>{
                             element.rating;
-                        })
+                        })  
                     ) :' No reviews for this product'
                     }
-                </div>
+                    </div>
             </div>
         </>
     );
