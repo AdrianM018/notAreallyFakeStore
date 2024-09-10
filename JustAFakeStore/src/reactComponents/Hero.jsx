@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
   
-const [randomproduct, setRandomProduct] = useState(null);
+const navigate = useNavigate()
+  const [randomproduct, setRandomProduct] = useState(null);
 const [loading, setLoading] = useState(true); 
 const [error, setError] = useState(null); 
 
@@ -40,6 +42,11 @@ if (error) {
   return <p>Error: {error}</p>;
 }
   return (
+    <a onClick={() =>{
+      const Product_String = JSON.stringify(randomproduct.id);
+      sessionStorage.setItem('PressedOnProduct', Product_String)
+      navigate('/SingleProductPage')
+    }}>
     <div className="my-5 pt-5">
     <div className="row pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg">
       <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
@@ -50,10 +57,11 @@ if (error) {
         </div>
       </div>
       <div className="col-lg-6 py-2 px-2 overflow-hidden">
-          <img className="rounded-3 img-thumbnail  shadow-lg" src={randomproduct.thumbnail} alt=""/>
+          <img className="rounded-3 img-thumbnail border-0" src={randomproduct.thumbnail} alt=""/>
       </div>
     </div>
   </div>
+  </a>
   )
 }
 

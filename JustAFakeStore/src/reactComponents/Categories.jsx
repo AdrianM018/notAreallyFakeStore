@@ -53,9 +53,8 @@ function Categories() {
                                         const Category_string = JSON.stringify(category.name);
                                         sessionStorage.setItem('PressedOnCategory', Category_string)
                                         navigate('/CategoryPage')
-                                    }}>
+                                    }} className='btn'>
                                         See products
-                                        <svg className="bi"></svg>
                                     </button>
                                 </div>
                             </div>

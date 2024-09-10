@@ -68,7 +68,21 @@ function SingleProduct() {
                         </div>
                     </div>
                     <div className='text-center my-5'>
-                        <button className='btn shadow w-50'>Buy now!</button>
+                        <button className='btn shadow w-50'onClick={() =>{
+                            const storingArray = [];
+                            if (localStorage.getItem('ProductsAddedToCart') === null){
+                                storingArray.push(singularProduct.id)
+                                const Product_String = JSON.stringify(storingArray);
+                                localStorage.setItem('ProductsAddedToCart', Product_String)
+                            }else{
+                                const accesproductsstored = localStorage.getItem('ProductsAddedToCart')
+                                const transformproductsstored = JSON.parse(accesproductsstored)
+                                const tobestoredProduct = singularProduct.id
+                                transformproductsstored.push(tobestoredProduct)
+                                const ProductList_String = JSON.stringify(transformproductsstored);
+                                localStorage.setItem('ProductsAddedToCart', ProductList_String)
+                            }
+                        }}>Buy now!</button>
                     </div>
                     <hr />
                     <h3>Other details</h3>
@@ -76,12 +90,12 @@ function SingleProduct() {
                 </div>
                 <div>
                     {singularProduct.reviews != 0 ? (
-                        singularProduct.reviews.map((element) =>{
+                        singularProduct.reviews.map((element) => {
                             element.rating;
-                        })  
-                    ) :' No reviews for this product'
+                        })
+                    ) : ' No reviews for this product'
                     }
-                    </div>
+                </div>
             </div>
         </>
     );

@@ -54,7 +54,7 @@ function CategoryPage() {
                 navigate('/SingleProductPage')
               }}>
                 <div className='shadow rounded-3 card border-0'>
-                  <img src={product.thumbnail} alt="" className='position-relative img-thumbnail border-0' />
+                  <img src={product.thumbnail} alt="product thumbnail" className='position-relative img-thumbnail border-0' />
                   <p className='position-absolute fs-6 bg-danger text-light rounded-4 p-1 top-0 mt-1 mb-0'>{product.tags[1] ? product.tags[1] : 'Fetching Tags'}</p>
                   <div className='row nowrap py-1'>
                     <p className='col text-start flex-grow-1'>{product.title ? product.title : 'Fetching Name'}</p>

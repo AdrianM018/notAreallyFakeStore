@@ -5,6 +5,7 @@ import CategoryPage from './reactComponents/CategoryPage'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import SingleProduct from './reactComponents/SingleProduct'
+import Cart from './reactComponents/Cart'
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: '/SingleProductPage',
     element: <SingleProduct/>
+  },
+  {
+    path: '/Cart',
+    element: <Cart/>
   }
 ])
 
