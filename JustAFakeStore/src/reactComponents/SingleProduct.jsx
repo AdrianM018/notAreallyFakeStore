@@ -49,7 +49,7 @@ function SingleProduct() {
             <Header />
             <div className='row mt-5'>
                 <div className='col-lg-6 mt-5'>
-                    <img src={singularProduct.images[1]} alt="" className='img-thumbnail shadow' />
+                    <img src={singularProduct.images[0]} alt="" className='img-thumbnail shadow' />
                 </div>
                 <div className='col-lg-6 text-start'>
                     <div>
@@ -69,17 +69,21 @@ function SingleProduct() {
                     </div>
                     <div className='text-center my-5'>
                         <button className='btn shadow w-50'onClick={() =>{
+                            const tobestoredProduct = {
+                                name: `${singularProduct.title}`,
+                                img: `${singularProduct.images[0]}`,
+                                price: `${singularProduct.price}`
+                            }
                             const storingArray = [];
                             if (localStorage.getItem('ProductsAddedToCart') === null){
-                                storingArray.push(singularProduct.id)
+                                storingArray.push(tobestoredProduct)
                                 const Product_String = JSON.stringify(storingArray);
                                 localStorage.setItem('ProductsAddedToCart', Product_String)
                             }else{
-                                const accesproductsstored = localStorage.getItem('ProductsAddedToCart')
-                                const transformproductsstored = JSON.parse(accesproductsstored)
-                                const tobestoredProduct = singularProduct.id
-                                transformproductsstored.push(tobestoredProduct)
-                                const ProductList_String = JSON.stringify(transformproductsstored);
+                                const accesproductsstored = JSON.parse(localStorage.getItem('ProductsAddedToCart'))
+                                // const tobestoredProduct = singularProduct.id
+                                accesproductsstored.push(tobestoredProduct)
+                                const ProductList_String = JSON.stringify(accesproductsstored);
                                 localStorage.setItem('ProductsAddedToCart', ProductList_String)
                             }
                         }}>Buy now!</button>
