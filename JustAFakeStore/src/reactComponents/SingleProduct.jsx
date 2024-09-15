@@ -54,52 +54,59 @@ function SingleProduct() {
                 <div className='col-lg-6 text-start'>
                     <div>
                         <h1 className='mt-5 pt-5'>{singularProduct.title}</h1>
-                        <p><strong>Brand: </strong>{singularProduct.brand} | Category: {singularProduct.category}</p>
+                        <p><strong>Brand: </strong>{singularProduct.brand ? `${singularProduct.brand}` : `Not branded`} | Category: {singularProduct.category}</p>
                     </div>
                     <hr />
                     <p>{singularProduct.description}</p>
                     <div>
                         <h2 className='text-center'>{singularProduct.price}$ ({singularProduct.discountPercentage}%)</h2>
-                        <h4 className='text-center'><i class="bi bi-star-fill"></i>{singularProduct.rating}</h4>
-                        <div className='row text-center'>
-                            <p className='col'>{singularProduct.availabilityStatus}</p>
-                            <p className='col'>Product id:{singularProduct.id}</p>
-                            <p className='col'>Minimum order qty:{singularProduct.minimumOrderQuantity}</p>
-                        </div>
+                        <h4 className='text-center'><i className="bi bi-star-fill"></i>{singularProduct.rating}</h4>
                     </div>
                     <div className='text-center my-5'>
-                        <button className='btn shadow w-50'onClick={() =>{
+                        <button className='btn shadow w-50 b-color-main text-light' onClick={() => {
                             const tobestoredProduct = {
                                 name: `${singularProduct.title}`,
                                 img: `${singularProduct.images[0]}`,
                                 price: `${singularProduct.price}`
                             }
                             const storingArray = [];
-                            if (localStorage.getItem('ProductsAddedToCart') === null){
+                            if (localStorage.getItem('ProductsAddedToCart') === null) {
                                 storingArray.push(tobestoredProduct)
                                 const Product_String = JSON.stringify(storingArray);
                                 localStorage.setItem('ProductsAddedToCart', Product_String)
-                            }else{
+                            } else {
                                 const accesproductsstored = JSON.parse(localStorage.getItem('ProductsAddedToCart'))
-                                // const tobestoredProduct = singularProduct.id
                                 accesproductsstored.push(tobestoredProduct)
                                 const ProductList_String = JSON.stringify(accesproductsstored);
                                 localStorage.setItem('ProductsAddedToCart', ProductList_String)
                             }
                         }}>Buy now!</button>
                     </div>
+                    <div className='row text-center'>
+                            <p className='col'>{singularProduct.availabilityStatus}</p>
+                            <p className='col'>Product ID: {singularProduct.id}</p>
+                            <p className='col'>Minimum order QTY: {singularProduct.minimumOrderQuantity}</p>
+                        </div>
                     <hr />
                     <h3>Other details</h3>
                     <p>This product has {singularProduct.warrantyInformation}, weights {singularProduct.weight} KG and has a {singularProduct.returnPolicy} </p>
                 </div>
+                <h3 className='mt-3'>Reviews</h3>
                 <div>
-                    {singularProduct.reviews != 0 ? (
-                        singularProduct.reviews.map((element) => {
-                            element.rating;
-                        })
-                    ) : ' No reviews for this product'
-                    }
+                    {singularProduct.reviews && singularProduct.reviews !=0 ? (
+                        singularProduct.reviews.map((review, index) => (
+                            <div key={index} className="text-start mt-3">
+                                <h5>Review by {review.reviewerName}</h5>
+                                <p><i className="bi bi-star-fill mx-2"></i>Rating: {review.rating}</p>
+                                <p>{review.comment}</p>
+                                <hr />
+                            </div>
+                        ))
+                    ) : (
+                        <p>No reviews for this product</p>
+                    )}
                 </div>
+
             </div>
         </>
     );

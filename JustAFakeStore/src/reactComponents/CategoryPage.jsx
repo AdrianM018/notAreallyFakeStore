@@ -22,6 +22,7 @@ function CategoryPage() {
 
         const json = await response.json();
         setProductsfromCategory(json.products);
+        console.log(json)
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -44,30 +45,30 @@ function CategoryPage() {
     <>
       <Header />
       <h1 className='mt-5 pt-5'>{SingleCategory} Products</h1>
-      <div className='row gap-3 mt-5'>
+      <div className='row mt-5 justify-content-start'>
         {ProductsfromCategory.length > 0 ? (
           ProductsfromCategory.map((product) => (
-            <div className='col border-0' key={product.id}>
+            <div className='col-lg-3 col-sm-4 col-md-4 border-0 mb-5' key={product.id}>
               <a onClick={() => {
                 const Product_String = JSON.stringify(product.id);
                 sessionStorage.setItem('PressedOnProduct', Product_String)
                 navigate('/SingleProductPage')
               }}>
-                <div className='shadow rounded-3 card border-0'>
+                <div className='shadow rounded-3 card border-0 h-100 text-start justify-content-between rounded-4'>
                   <img src={product.thumbnail} alt="product thumbnail" className='position-relative img-thumbnail border-0' />
-                  <p className='position-absolute fs-6 bg-danger text-light rounded-4 p-1 top-0 mt-1 mb-0'>{product.tags[1] ? product.tags[1] : 'Fetching Tags'}</p>
-                  <div className='row nowrap py-1'>
-                    <p className='col text-start flex-grow-1'>{product.title ? product.title : 'Fetching Name'}</p>
-                    <p className='col-auto text-end'>{product.price ? `$${product.price}` : 'Fetching Price'}</p>
+                  <p className='position-absolute fs-6 bg-danger text-light rounded-4 p-1 top-0 m-1'>{product.tags[1] ? product.tags[1] : 'Fetching Tags'}</p>
+                  <div className='px-1'>
+                  <h4>{product.title ? product.title : 'Fetching Name'}</h4>
+                  <p><i className="bi bi-star p-1"></i>{product.rating ? `${product.rating}` : 'No Ratings'}</p>
+                  <p>Brand: <strong>{product.brand ? `${product.brand}` : ''}</strong></p>
+                  <p><i>{product.availabilityStatus ? `${product.availabilityStatus}` : ''}</i></p>
+                  <div className='row text-center justify-content-center'>
+                    <p className='col-auto p-1 fs-3'>{product.price ? `$${product.price}` : 'Fetching Price'}</p>
+                    <sub className='col-auto p-1 fs-6'> <del>{product.discountPercentage ? `${product.discountPercentage}%` : 'Fetching Price'}</del></sub>
                   </div>
-                  <p className='col-auto text-center'>{product.shippingInformation ? `${product.shippingInformation}` : 'Fetching Price'}</p>
-                  <p className='col-auto text-center'><i className="bi bi-star p-1"></i>{product.rating ? `${product.rating}` : 'Fetching Price'}</p>
-                </div>
-                <div className='shadow rounded-3 card border-0 mt-4'>
-                  <div className='row gap-0 rounded-3'>
-                    <p className='col m-0 p-0 align-self-center'>Buy now!</p>
-                    <p className='col-auto m-0 py-2 align-self-center bg-danger rounded-3'>{product.discountPercentage ? `${product.discountPercentage}%` : 'Fetching Price'}</p>
+                  <p className=' text-center'><i>{product.shippingInformation ? `${product.shippingInformation}` : 'Fetching Price'}!</i></p>
                   </div>
+                  <button className='w-100 border-0 py-3 b-color-main rounded-bottom-4 text-light'>Buy now!</button>
                 </div>
               </a>
             </div>

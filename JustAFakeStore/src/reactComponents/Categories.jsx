@@ -6,7 +6,6 @@ function Categories() {
     const [categoriesData, setCategoriesData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [randomnumber, setRandomNumber] = useState(Math.floor(Math.random() * (30 - 1) + 1  ))
 
     useEffect(() => {
         async function getData() {
@@ -48,7 +47,6 @@ function Categories() {
                             <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                                 <div className="col p-lg-4 p-3 d-flex flex-column position-static">
                                     <h3 className="mb-0 fs-2">{category.name ? category.name : 'Fetching Name'}</h3>
-                                    <p className="card-text mb-auto fs-6">Over {randomnumber} products to choose from</p>
                                     <button  onClick={() => {
                                         const Category_string = JSON.stringify(category.name);
                                         sessionStorage.setItem('PressedOnCategory', Category_string)
