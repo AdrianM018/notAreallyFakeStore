@@ -65,16 +65,23 @@ function SingleProduct() {
                     <div className='text-center my-5'>
                         <button className='btn shadow w-50 b-color-main text-light' onClick={() => {
                             const tobestoredProduct = {
-                                name: `${singularProduct.title}`,
-                                img: `${singularProduct.images[0]}`,
-                                price: `${singularProduct.price}`
+                                name: singularProduct.title,
+                                img: singularProduct.images[0],
+                                price: singularProduct.price,
+                                qty: 1,
                             }
                             const storingArray = [];
                             if (localStorage.getItem('ProductsAddedToCart') === null) {
                                 storingArray.push(tobestoredProduct)
                                 const Product_String = JSON.stringify(storingArray);
                                 localStorage.setItem('ProductsAddedToCart', Product_String)
-                            } else {
+                            } else if(localStorage.getItem('ProductsAddedToCart').includes(singularProduct.title)){
+                                const accesproductsstored = JSON.parse(localStorage.getItem('ProductsAddedToCart'))
+                                const updatestockincart = accesproductsstored.find((Element) => Element.name === singularProduct.title)
+                                updatestockincart.qty = updatestockincart.qty + 1
+                                const ProductList_String = JSON.stringify(accesproductsstored);
+                                localStorage.setItem('ProductsAddedToCart', ProductList_String)
+                            }else {
                                 const accesproductsstored = JSON.parse(localStorage.getItem('ProductsAddedToCart'))
                                 accesproductsstored.push(tobestoredProduct)
                                 const ProductList_String = JSON.stringify(accesproductsstored);
