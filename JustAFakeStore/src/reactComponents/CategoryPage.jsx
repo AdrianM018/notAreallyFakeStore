@@ -56,7 +56,7 @@ function CategoryPage() {
               }}>
                 <div className='shadow rounded-3 card border-0 h-100 text-start justify-content-between rounded-4'>
                   <img src={product.thumbnail} alt="product thumbnail" className='position-relative img-thumbnail border-0' />
-                  <p className='position-absolute fs-6 bg-danger text-light rounded-4 p-1 top-0 m-1'>{product.tags[1] ? product.tags[1] : 'Fetching Tags'}</p>
+                  <p className='position-absolute fs-6 bg-secondery-color text-light rounded-2 p-1 top-0 m-1'>{product.tags[1] ? product.tags[1] : 'Fetching Tags'}</p>
                   <div className='px-1'>
                   <h4>{product.title ? product.title : 'Fetching Name'}</h4>
                   <p><i className="bi bi-star p-1"></i>{product.rating ? `${product.rating}` : 'No Ratings'}</p>

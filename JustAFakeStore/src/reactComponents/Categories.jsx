@@ -43,17 +43,15 @@ function Categories() {
             <>
                 <div className="row mb-2">
                     {categoriesData.map((category) =>
-                        <div className="col-md-4 col-sm-1 col-xs-1 col-6" key={category.slug}>
-                            <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                <div className="col p-lg-4 p-3 d-flex flex-column position-static">
-                                    <h3 className="mb-0 fs-2">{category.name ? category.name : 'Fetching Name'}</h3>
-                                    <button  onClick={() => {
+                        <div className="col-md-4 col-sm-1 col-xs-1 col-6 " key={category.slug}>
+                            <div className="row g-0 border border-dark-shades rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-color-anim" onClick={()=>{
                                         const Category_string = JSON.stringify(category.name);
                                         sessionStorage.setItem('PressedOnCategory', Category_string)
                                         navigate('/CategoryPage')
-                                    }} className='btn'>
-                                        See products
-                                    </button>
+                            }}>
+                                <div className="col p-lg-4 p-3 d-flex flex-column position-static">
+                                    <h3 className="mb-0 fs-2">{category.name ? category.name : 'Fetching Name'}</h3>
+                                    <p>See products</p>
                                 </div>
                             </div>
                         </div>

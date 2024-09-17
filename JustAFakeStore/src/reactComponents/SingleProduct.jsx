@@ -63,7 +63,7 @@ function SingleProduct() {
                         <h4 className='text-center'><i className="bi bi-star-fill"></i>{singularProduct.rating}</h4>
                     </div>
                     <div className='text-center my-5'>
-                        <button className='btn shadow w-50 b-color-main text-light' onClick={() => {
+                        <button className='btn shadow w-50 bg-color-main text-light' onClick={() => {
                             const tobestoredProduct = {
                                 name: singularProduct.title,
                                 img: singularProduct.images[0],
@@ -87,7 +87,10 @@ function SingleProduct() {
                                 const ProductList_String = JSON.stringify(accesproductsstored);
                                 localStorage.setItem('ProductsAddedToCart', ProductList_String)
                             }
-                        }}>Buy now!</button>
+
+                            const buybtn = document.getElementById('buybtn').innerHTML = 'Added to cart'
+
+                        }} id='buybtn'>Buy now!</button>
                     </div>
                     <div className='row text-center'>
                             <p className='col'>{singularProduct.availabilityStatus}</p>

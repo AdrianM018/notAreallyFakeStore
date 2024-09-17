@@ -61,7 +61,7 @@ function Cart() {
           <form className="card p-2">
             <div className="input-group">
               <input type="text" className="form-control" placeholder="Promo code" />
-              <button type="submit" className="btn btn-secondary">Revendica</button>
+              <button type="submit" className="btn bg-color-main light-shades">Revendica</button>
             </div>
           </form>
         </div>
@@ -201,7 +201,7 @@ function Cart() {
             </div>
           </div>
           <hr className="my-4"></hr>
-          <button className="w-100 btn text-light btn-lg b-color-main" type="submit">Continue to checkout</button>
+          <button className="w-100 btn text-light btn-lg bg-color-main" type="submit">Continue to checkout</button>
         </div >
       </div>
     </>

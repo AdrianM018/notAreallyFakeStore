@@ -1,21 +1,57 @@
 :root{
   --main-color: #511752;
+  --secondery-color: #E33748;
+  --dark-shades: #16181C;
+  --light-shades: #E4DDDD;
 }
 
 body{
-  background-image: radial-gradient(circle at 82% 63%, rgba(183, 183, 183,0.09) 0%, rgba(183, 183, 183,0.09) 84%,transparent 84%, transparent 100%),radial-gradient(circle at 88% 98%, rgba(232, 232, 232,0.07) 0%, rgba(232, 232, 232,0.07) 15%,transparent 15%, transparent 100%),radial-gradient(circle at 77% 83%, rgba(252, 252, 252,0.05) 0%, rgba(252, 252, 252,0.05) 5%,transparent 5%, transparent 100%),radial-gradient(circle at 64% 0%, rgba(140, 140, 140,0.05) 0%, rgba(140, 140, 140,0.05) 54%,transparent 54%, transparent 100%),radial-gradient(circle at 57% 86%, rgba(241, 241, 241,0.07) 0%, rgba(241, 241, 241,0.07) 80%,transparent 80%, transparent 100%),radial-gradient(circle at 17% 93%, rgba(68, 68, 68,0.05) 0%, rgba(68, 68, 68,0.05) 82%,transparent 82%, transparent 100%),radial-gradient(circle at 85% 70%, rgba(10, 10, 10,0.02) 0%, rgba(10, 10, 10,0.02) 13%,transparent 13%, transparent 100%),linear-gradient(90deg, rgb(48, 62, 175),rgb(254, 18, 105));
+  background-image: radial-gradient(circle at 13% 47%, rgba(140, 140, 140,0.03) 0%, rgba(140, 140, 140,0.03) 25%,transparent 25%, transparent 100%),radial-gradient(circle at 28% 63%, rgba(143, 143, 143,0.03) 0%, rgba(143, 143, 143,0.03) 16%,transparent 16%, transparent 100%),radial-gradient(circle at 81% 56%, rgba(65, 65, 65,0.03) 0%, rgba(65, 65, 65,0.03) 12%,transparent 12%, transparent 100%),radial-gradient(circle at 26% 48%, rgba(60, 60, 60,0.03) 0%, rgba(60, 60, 60,0.03) 6%,transparent 6%, transparent 100%),radial-gradient(circle at 97% 17%, rgba(150, 150, 150,0.03) 0%, rgba(150, 150, 150,0.03) 56%,transparent 56%, transparent 100%),radial-gradient(circle at 50% 100%, rgba(25, 25, 25,0.03) 0%, rgba(25, 25, 25,0.03) 36%,transparent 36%, transparent 100%),radial-gradient(circle at 55% 52%, rgba(69, 69, 69,0.03) 0%, rgba(69, 69, 69,0.03) 6%,transparent 6%, transparent 100%),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
+
+  color: var(--dark-shades);
 }
 
 .color-main{
   color: var(--main-color);
 }
-
-.b-color-main{
-  background-color: var(--main-color);
+.secondery-color{
+  color: var(--secondery-color);
+}
+.dark-shades{
+  color: var(--dark-shades);
+}
+.light-shades{
+  color: var(--light-shades);
 }
 
-.glass{
-background: rgba(81, 23, 82, 0.85);
+.bg-color-main{
+  background-color: var(--main-color);
+}
+.bg-secondery-color{
+  background-color: var(--secondery-color);
+}
+.bg-dark-shades{
+  background-color: var(--dark-shades);
+}
+.bg-light-shades{
+  background-color:  var(--light-shades);
+}
+
+.border-color-main{
+  border-color: var(--main-color);
+}
+.border-secondery-color{
+  border-color: var(--secondery-color);
+}
+.border-dark-shades{
+  border-color: var(--dark-shades);
+}
+.border-light-shades{
+  border-color: var(--light-shades);
+}
+
+.glass-colored{
+background: var(--main-color);
 border-top-right-radius: 16px;
 border-bottom-right-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -24,6 +60,31 @@ backdrop-filter: blur(9px);
 border: 1px solid rgba(81, 23, 82, 0.69);
 }
 
-.btn-hover{
 
+button{
+  border: none;
+  background-color: var(--main-color);
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: var(--main-color) !important;
+  color: var(--light-shades) !important;
+  }
+
+.zoom-anim:hover{
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.bg-color-anim:hover{
+  transition: all 0.2s ease-in-out;
+  background-color: var(--main-color);
+  color: var(--light-shades);
+}
+
+.succes-anim{
+  transition: all 0.2s ease-in-out;
+  background-color: green !important;
 }

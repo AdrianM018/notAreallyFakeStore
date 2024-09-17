@@ -53,7 +53,7 @@ if (error) {
         <h1 className="display-6 fw-bold lh-1 text-body-emphasis">{randomproduct.title}</h1>
         <p className="lead fs-6">{randomproduct.description}</p>
         <div className="d-grid gap-2 d-md-flex justify-content-center mb-4 mb-lg-3">
-          <button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Buy now</button>
+          <button type="button" className="btn bg-color-main light-shades btn-lg px-4 me-md-2 fw-bold">Buy now</button>
         </div>
       </div>
       <div className="col-lg-6 py-2 px-2 overflow-hidden">
