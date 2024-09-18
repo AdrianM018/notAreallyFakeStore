@@ -51,13 +51,12 @@ body{
 }
 
 .glass-colored{
-background: var(--main-color);
-border-top-right-radius: 16px;
-border-bottom-right-radius: 16px;
+/* From https://css.glass */
+background: rgba(81, 23, 82, 0.95);
+border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(9px);
--webkit-backdrop-filter: blur(9px);
-border: 1px solid rgba(81, 23, 82, 0.69);
+backdrop-filter: blur(7.3px);
+-webkit-backdrop-filter: blur(7.3px);
 }
 
 
@@ -75,7 +74,9 @@ button:hover {
 
 .zoom-anim:hover{
   transform: scale(1.1);
+  text-decoration: underline;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .bg-color-anim:hover{

@@ -4,11 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const navigate = useNavigate()
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-
-  function expandSidebar() {
-    setIsSidebarVisible(!isSidebarVisible);
-  }
 
 
   return (
@@ -16,11 +11,7 @@ function Header() {
       <header className='fixed-top bg-color-main text-light'>
         <div className="container">
           <div className="d-flex justify-content-between py-3">
-            <button onClick={expandSidebar} className='border-0 text-light bg-color-main'>
-              <svg xmlns="http://www.w3.org/2000/svg" width='30' height='30' fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-              </svg>
-            </button>
+            <Navbar></Navbar>
             <img src="./src/assets/JustAFakeStore.png" alt="Logo" className='h-25 w-25 zoom-anim' onClick={() => navigate('/')}/>
             <div className='d-flex gap-4'>
               <a className="nav-link active align-self-center zoom-anim" aria-current="page" onClick={()=>{navigate('/Cart')}}>
@@ -38,7 +29,6 @@ function Header() {
           </div>
         </div>
       </header>
-      {isSidebarVisible && <Navbar/>}
     </>
   )
 }
