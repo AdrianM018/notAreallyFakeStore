@@ -43,7 +43,7 @@ function Categories() {
             <>
                 <div className="row mb-2">
                     {categoriesData.map((category) =>
-                        <div className="col-md-4 col-sm-1 col-xs-1 col-6 " key={category.slug}>
+                        <div className="col-md-4 col-sm-4 col-6 " key={category.slug}>
                             <div className="row g-0 border border-dark-shades rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-color-anim" onClick={()=>{
                                         const Category_string = JSON.stringify(category.name);
                                         sessionStorage.setItem('PressedOnCategory', Category_string)

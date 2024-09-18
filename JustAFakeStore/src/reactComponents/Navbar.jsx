@@ -51,8 +51,8 @@ function Navbar() {
             )
         } else {
             return (
-                <ul className='glass text-light glass-colored list-unstyled p-3 fixed-top h-100 overflow-y-scroll' id='navbar'>
-                    <button className='d-inline text-light b-color-main border-1 rounded-circle border-light px-2' id='closeNavbar' onClick={()=>{
+                <ul className='text-light glass-colored list-unstyled p-3 fixed-top h-100 overflow-y-scroll overflow-x-hidden' id='navbar'>
+                    <button className='d-inline text-light bg-secondery-color rounded-circle px-2' id='closeNavbar' onClick={()=>{
                         setIsSidebarVisible(false)
                     }}>
                         <h3 className='m-2'>X</h3>

@@ -6,6 +6,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import SingleProduct from './reactComponents/SingleProduct'
 import Cart from './reactComponents/Cart'
+import SearchPage from './reactComponents/SearchPage'
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/Cart',
     element: <Cart/>
+  },
+  {
+    path: '/SearchPage',
+    element: <SearchPage/>
   }
 ])
 

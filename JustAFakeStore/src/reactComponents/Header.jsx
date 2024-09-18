@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Navbar from './Navbar'
+import Search from './Search';
 import { useNavigate } from 'react-router-dom';
 
 function Header() {
@@ -10,9 +11,10 @@ function Header() {
     <>
       <header className='fixed-top bg-color-main text-light'>
         <div className="container">
+        <img src="./src/assets/JustAFakeStore.png" alt="Logo" className='h-25 w-25 zoom-anim d-sm-block d-md-none m-auto mt-2' onClick={() => navigate('/')}/>
           <div className="d-flex justify-content-between py-3">
             <Navbar></Navbar>
-            <img src="./src/assets/JustAFakeStore.png" alt="Logo" className='h-25 w-25 zoom-anim' onClick={() => navigate('/')}/>
+            <img src="./src/assets/JustAFakeStore.png" alt="Logo" className='h-25 w-25 zoom-anim d-sm-none d-md-block' onClick={() => navigate('/')}/>
             <div className='d-flex gap-4'>
               <a className="nav-link active align-self-center zoom-anim" aria-current="page" onClick={()=>{navigate('/Cart')}}>
                 <svg xmlns="http://www.w3.org/2000/svg" width='30' height='30' fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
@@ -25,6 +27,7 @@ function Header() {
                   <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                 </svg>
               </a>
+              <Search></Search>
             </div>
           </div>
         </div>
