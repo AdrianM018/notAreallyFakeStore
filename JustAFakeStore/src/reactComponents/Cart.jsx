@@ -201,7 +201,13 @@ function Cart() {
             </div>
           </div>
           <hr className="my-4"></hr>
-          <button className="w-100 btn text-light btn-lg bg-color-main" type="submit">Continue to checkout</button>
+          <button className="w-100 btn text-light btn-lg bg-color-main" type="submit" onClick={()=>{
+            let ProductList = JSON.parse(localStorage.getItem('ProductsAddedToCart'))
+              ProductList = [];
+              const Category_string = JSON.stringify(ProductList);
+              localStorage.setItem('ProductsAddedToCart', Category_string)
+              location.reload();
+          }} id='Checkoutbutton'>Continue to checkout</button>
         </div >
       </div>
     </>
